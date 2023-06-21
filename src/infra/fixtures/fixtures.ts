@@ -52,14 +52,14 @@ export const test = base.extend<MyFixtures>({
         const menuSection = new MenuSection(page);
         await use(menuSection);
       },
-  loginPage: async ({ page }, use) => {
-        const loginPage = new LoginPage(page);
+  loginPage: async ({ page, baseURL }, use) => {
+        const loginPage = new LoginPage(page, baseURL);
         await use(loginPage);
   },
 
-  inventoryPage: async ({ page }, use) => {
+  inventoryPage: async ({ page, baseURL }, use) => {
     
-    const inventoryPage = new InventoryPage(page);
+    const inventoryPage = new InventoryPage(page, baseURL);
     await use(inventoryPage);
   },
   cartPage: async ({ page }, use) => {

@@ -11,9 +11,9 @@ export class LoginPage {
   readonly passwordInputField: Locator;
   readonly loginButton: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseURL: any) {
     this.page = page;
-    this.url = `${process.env.BASE_URL}`;
+    this.url = baseURL;
     this.usernameInputField = page.locator('[data-test="username"]');
     this.passwordInputField = page.locator('[data-test="password"]')
     this.loginButton = page.locator('[data-test="login-button"]')

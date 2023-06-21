@@ -11,9 +11,9 @@ export class InventoryPage {
   readonly menuButton: Locator;
   readonly footer: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseURL: any) {
     this.page = page;
-    this.url = `${process.env.BASE_URL}/inventory.html`;
+    this.url = `${baseURL}/inventory.html`;
     this.productsTitle = page.getByText('Products');
     this.sortingDropDownList = page.locator('[data-test="product_sort_container"]');
     this.shoppingCartIcon = page.locator('#shopping_cart_container a');
@@ -27,7 +27,7 @@ export class InventoryPage {
   }
 
   async verifyPageLoaded(){
-    await expect(this.page).toHaveURL(LINKS.home!);
+    await expect(this.page).toHaveURL(this.url);
     await expect(this.productsTitle).toBeVisible();
   }
 
