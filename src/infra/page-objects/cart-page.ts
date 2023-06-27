@@ -1,6 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
-const { LINKS } = require(`../configs/constants`);
 
 
 export class CartPage {
@@ -14,9 +13,9 @@ export class CartPage {
   readonly menuButton: Locator;
   readonly footer: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseURL: any) {
     this.page = page;
-    this.url = `${process.env.BASE_URL}/cart.html`;
+    this.url = `${baseURL}/cart.html`;
     this.yourCartTitle = page.getByText('Your Cart');
     this.qtyTableColumn= page.getByText('QTY');
     this.descriptionTableColumn= page.getByText('Description');

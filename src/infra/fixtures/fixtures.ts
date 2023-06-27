@@ -62,15 +62,15 @@ export const test = base.extend<MyFixtures>({
     const inventoryPage = new InventoryPage(page, baseURL);
     await use(inventoryPage);
   },
-  cartPage: async ({ page }, use) => {
+  cartPage: async ({ page, baseURL }, use) => {
     
-    const cartPage = new CartPage(page);
+    const cartPage = new CartPage(page, baseURL);
     await use(cartPage);
   },
 
-  checkoutStepOne: async ({ page }, use) => {
+  checkoutStepOne: async ({ page, baseURL }, use) => {
     
-    const checkoutStepOne = new CheckoutStepOne(page);
+    const checkoutStepOne = new CheckoutStepOne(page, baseURL);
     await use(checkoutStepOne);
   },
 

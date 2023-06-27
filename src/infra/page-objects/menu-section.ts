@@ -1,5 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test';
-const { LINKS } = require(`../configs/constants`);
 
 
 export class MenuSection {
@@ -32,7 +31,7 @@ export class MenuSection {
 
   async openAbout(){
     await this.about.click();
-    await expect(this.page).toHaveURL(LINKS.about);
+    await expect(this.page).toHaveURL(`${this.baseURL}/about`);
   }
 
 

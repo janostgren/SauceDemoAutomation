@@ -1,5 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test';
-const { LINKS } = require(`../configs/constants`);
 
 
 export class Header {

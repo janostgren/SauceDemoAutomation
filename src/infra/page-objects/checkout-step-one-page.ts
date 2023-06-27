@@ -1,6 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
-const { LINKS } = require(`../configs/constants`);
 
 
 export class CheckoutStepOne {
@@ -14,9 +13,9 @@ export class CheckoutStepOne {
   readonly continueButton : Locator;
   readonly footer: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseURL : any) {
     this.page = page;
-    this.url = `${process.env.BASE_URL}/checkout-step-one.html`;
+    this.url = `${baseURL}/checkout-step-one.html`;
     this.yourInformationTitle = page.getByText('Checkout: Your Information');
     this.firstNameInputField = page.locator('[data-test="firstName"]');
     this.lastNameInputField = page.locator('[data-test="lastName"]');

@@ -1,6 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
 import process from 'process';
-const { LINKS } = require(`../configs/constants`);
 
 
 

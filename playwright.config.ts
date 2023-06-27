@@ -13,6 +13,31 @@ import { config as loadEnvConfig } from 'dotenv';
  */
 //Choose environment based on a command-line argument or default to 'production'
 
+let clientLink;
+
+if (process.env.ENV === 'local') {
+  require('dotenv').config({
+    path: `./src/infra/envs/.env.local`
+  });
+  clientLink = process.env.CLIENT_LINK;
+} else if (process.env.ENV === 'adhoc' && process.env.NAME) {
+  require('dotenv').config({
+    path: `./src/infra/envs/.env.adhoc`
+  });
+  clientLink = `https://${process.env.BRANCH_NAME}-client.saucedemo.com`;
+  console.log('Running tests on adhoc: ', process.env.NAME);
+} else {
+  require('dotenv').config({
+    path: `./src/infra/envs/.env.staging`
+  });
+  clientLink = process.env.CLIENT_LINK;
+  console.log('Running tests on staging env: ', clientLink);
+}
+
+
+
+
+
 
 export default defineConfig({
   //globalSetup: './src/infra/configs/global-setup.ts',
@@ -32,7 +57,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     //baseURL: process.env.BASE_URL,
-    baseURL: `https://www.saucedemo.com`,
+    baseURL: clientLink,
     headless: true,
     
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

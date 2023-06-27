@@ -1,6 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
-const { LINKS } = require(`../configs/constants`);
 
 
 export class CheckoutComplete {
