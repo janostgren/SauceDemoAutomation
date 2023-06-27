@@ -47,9 +47,9 @@ export const test = base.extend<MyFixtures>({
         // Clean up the fixture.
         //await todoPage.removeAll();
       },  
-      menuSection: async ({ page }, use) => {
+      menuSection: async ({ page, baseURL }, use) => {
     
-        const menuSection = new MenuSection(page);
+        const menuSection = new MenuSection(page, baseURL);
         await use(menuSection);
       },
   loginPage: async ({ page, baseURL }, use) => {

@@ -4,14 +4,16 @@ const { LINKS } = require(`../configs/constants`);
 
 export class MenuSection {
   readonly page: Page;
+  readonly baseURL: string
   readonly menuElement: Locator;
   readonly allItems: Locator;
   readonly about: Locator;
   readonly logout: Locator;
   readonly resetAppState: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseURL: any) {
     this.page = page;
+    this.baseURL = baseURL;
     this.menuElement = page.getByText('All ItemsAboutLogoutReset App State');
     this.allItems = page.getByRole('link', { name: 'All Items' });
     this.about = page.getByRole('link', { name: 'About' });
@@ -36,7 +38,7 @@ export class MenuSection {
 
   async performLogout(){
     await this.logout.click();
-    await expect(this.page).toHaveURL(`${process.env.BASE_URL}`);
+    await expect(this.page).toHaveURL(this.baseURL);
   }
 
   async performResetAppState(){
