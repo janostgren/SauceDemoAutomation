@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "Sanity Tests": "npx playwright test src/tests/sanity-tests"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
