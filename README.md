@@ -21,5 +21,5 @@ npm run "Sanity Tests"
 npm run "E2E Tests"
 
 If you want to execute on a specific environment: please add first "ENV=[env-name]"
-ENV=staging npm run "Sanity Tests"
+ENV=staging npm run "Sanity Tests" 
 
