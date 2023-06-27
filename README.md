@@ -16,5 +16,10 @@ Config: Supports muiltiple environments: local, adhoc $ staging.
 
 Global Parameterization : The home/main page is defined as Global Parameter and can be accessed from any file in the project. Currently, is being accessed only by page objects. 
 
+How to execute test suites?
+npm run "Sanity Tests"
+npm run "E2E Tests"
 
+If you want to execute on a specific environment: please add first "ENV=[env-name]"
+ENV=staging npm run "Sanity Tests"
 
