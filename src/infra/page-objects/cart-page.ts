@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 export class CartPage {
@@ -13,9 +14,9 @@ export class CartPage {
   readonly menuButton: Locator;
   readonly footer: Locator;
 
-  constructor(page: Page, baseURL: any) {
+  constructor(page: Page) {
     this.page = page;
-    this.url = `${baseURL}/cart.html`;
+    this.url = `${GLOBAL_PARAMS.HOME}cart.html`;
     this.yourCartTitle = page.getByText('Your Cart');
     this.qtyTableColumn= page.getByText('QTY');
     this.descriptionTableColumn= page.getByText('Description');

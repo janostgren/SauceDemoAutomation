@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 export class CheckoutStepTwo {
@@ -15,7 +16,7 @@ export class CheckoutStepTwo {
 
   constructor(page: Page) {
     this.page = page;
-    this.url = `${process.env.BASE_URL}/checkout-step-two.html`;
+    this.url = `${GLOBAL_PARAMS.HOME}checkout-step-two.html`;
     this.overviewTitle = page.getByText('Checkout: Overview')
     this.qtyTableColumn= page.getByText('QTY');
     this.descriptionTableColumn= page.getByText('Description');

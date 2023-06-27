@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 export class InventoryPage {
@@ -10,9 +11,9 @@ export class InventoryPage {
   readonly menuButton: Locator;
   readonly footer: Locator;
 
-  constructor(page: Page, baseURL: any) {
+  constructor(page: Page) {
     this.page = page;
-    this.url = `${baseURL}/inventory.html`;
+    this.url = `${GLOBAL_PARAMS.HOME}inventory.html`;
     this.productsTitle = page.getByText('Products');
     this.sortingDropDownList = page.locator('[data-test="product_sort_container"]');
     this.shoppingCartIcon = page.locator('#shopping_cart_container a');

@@ -47,30 +47,30 @@ export const test = base.extend<MyFixtures>({
         // Clean up the fixture.
         //await todoPage.removeAll();
       },  
-      menuSection: async ({ page, baseURL }, use) => {
+      menuSection: async ({ page }, use) => {
     
-        const menuSection = new MenuSection(page, baseURL);
+        const menuSection = new MenuSection(page);
         await use(menuSection);
       },
-  loginPage: async ({ page, baseURL }, use) => {
-        const loginPage = new LoginPage(page, baseURL);
+  loginPage: async ({ page }, use) => {
+        const loginPage = new LoginPage(page);
         await use(loginPage);
   },
 
-  inventoryPage: async ({ page, baseURL }, use) => {
+  inventoryPage: async ({ page }, use) => {
     
-    const inventoryPage = new InventoryPage(page, baseURL);
+    const inventoryPage = new InventoryPage(page);
     await use(inventoryPage);
   },
-  cartPage: async ({ page, baseURL }, use) => {
+  cartPage: async ({ page }, use) => {
     
-    const cartPage = new CartPage(page, baseURL);
+    const cartPage = new CartPage(page);
     await use(cartPage);
   },
 
-  checkoutStepOne: async ({ page, baseURL }, use) => {
+  checkoutStepOne: async ({ page }, use) => {
     
-    const checkoutStepOne = new CheckoutStepOne(page, baseURL);
+    const checkoutStepOne = new CheckoutStepOne(page);
     await use(checkoutStepOne);
   },
 

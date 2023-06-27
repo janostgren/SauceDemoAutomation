@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 export class MenuSection {
@@ -10,9 +11,9 @@ export class MenuSection {
   readonly logout: Locator;
   readonly resetAppState: Locator;
 
-  constructor(page: Page, baseURL: any) {
+  constructor(page: Page) {
     this.page = page;
-    this.baseURL = baseURL;
+    this.baseURL = GLOBAL_PARAMS.HOME;
     this.menuElement = page.getByText('All ItemsAboutLogoutReset App State');
     this.allItems = page.getByRole('link', { name: 'All Items' });
     this.about = page.getByRole('link', { name: 'About' });

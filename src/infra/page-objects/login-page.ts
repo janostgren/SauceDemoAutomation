@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import process from 'process';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 
@@ -10,9 +11,9 @@ export class LoginPage {
   readonly passwordInputField: Locator;
   readonly loginButton: Locator;
 
-  constructor(page: Page, baseURL: any) {
+  constructor(page: Page) {
     this.page = page;
-    this.url = baseURL;
+    this.url = GLOBAL_PARAMS.HOME;
     this.usernameInputField = page.locator('[data-test="username"]');
     this.passwordInputField = page.locator('[data-test="password"]')
     this.loginButton = page.locator('[data-test="login-button"]')

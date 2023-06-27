@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 export class CheckoutStepOne {
@@ -13,9 +14,9 @@ export class CheckoutStepOne {
   readonly continueButton : Locator;
   readonly footer: Locator;
 
-  constructor(page: Page, baseURL : any) {
+  constructor(page: Page) {
     this.page = page;
-    this.url = `${baseURL}/checkout-step-one.html`;
+    this.url = `${GLOBAL_PARAMS.HOME}checkout-step-one.html`;
     this.yourInformationTitle = page.getByText('Checkout: Your Information');
     this.firstNameInputField = page.locator('[data-test="firstName"]');
     this.lastNameInputField = page.locator('[data-test="lastName"]');

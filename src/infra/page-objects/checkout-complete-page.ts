@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { removeHyphensInString } from '../../helpers/helpers';
+import { GLOBAL_PARAMS } from '../configs/global-params';
 
 
 export class CheckoutComplete {
@@ -13,7 +14,7 @@ export class CheckoutComplete {
 
   constructor(page: Page) {
     this.page = page;
-    this.url = `${process.env.BASE_URL}/checkout-complete.html`;
+    this.url = `${GLOBAL_PARAMS.HOME}checkout-complete.html`;
     this.thankyouText = page.getByRole('heading', { name: 'Thank you for your order!' });
     this.subText= page.getByText('Your order has been dispatched, and will arrive just as fast as the pony can get')
     this.ponyImage= page.getByRole('img', { name: 'Pony Express' });
