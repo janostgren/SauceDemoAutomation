@@ -4,7 +4,7 @@ import { test, expect } from '../../infra/fixtures/fixtures';
 
 
 
-test.describe.serial('login tests', () => {
+test.describe.parallel('login tests', () => {
 
   test.beforeEach(async ({ loginPage }) => {
     // Go to the starting url before each test.

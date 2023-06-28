@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "Sanity Tests": "npx playwright test src/tests/sanity-tests"
+    "Sanity Tests": "npx playwright test src/tests/sanity-tests",
+    "E2E Tests": "npx playwright test src/tests/e2e-tests"
   },
   "keywords": [],
   "author": "",

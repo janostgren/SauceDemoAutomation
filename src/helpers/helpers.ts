@@ -1,5 +1,5 @@
-export const removeHyphensInString = (arg0: string) => (originalString: string): string =>{
-return originalString.replace(/-/g, " ");
+export const removeHyphensInString = (originalString: string): string => {
+  return originalString.replace(/-/g, " ");
 }
 
 export const findAndUpdateObjectInArray = (objects: any[], data: any, id: string) => {
