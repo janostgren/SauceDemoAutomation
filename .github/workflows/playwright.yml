@@ -9,6 +9,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
+    env:
+      TEST_DATA_PATH: src/tests/test-data/standard-user-data.json
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -18,8 +20,6 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Select Test Data File
-        run: export TEST_DATA_PATH=src/tests/test-data/standard-user-data.json
       - name: Run Sanity Tests
         run: npm run "Sanity Tests"
       - uses: actions/upload-artifact@v2 
