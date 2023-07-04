@@ -1,8 +1,12 @@
-import { FullConfig } from '@playwright/test';
+import { FullConfig, test } from '@playwright/test';
+
 
 import ENV from '../envs/env';
 
 import { generateToken } from './preRun';
+
+
+
 
 async function globalSetup(config: FullConfig) {
   if (process.env.ENV === 'adhoc' && process.env.NAME) {
@@ -31,7 +35,10 @@ async function globalSetup(config: FullConfig) {
   }
 
   process.env.TOKEN = await generateToken();
+
+  
 }
+
 
 export default globalSetup;
 export const apiTimeout = 120 * 1000;

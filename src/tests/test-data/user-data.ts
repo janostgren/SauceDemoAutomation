@@ -1,4 +1,24 @@
 
+
+export const testUser = {
+  username: "",
+  password: "",
+  firstName : "",
+  lastName : "",
+  zipCode : "",
+  desiredItemName: ""
+  
+};
+
+export const standardUser = {
+    username :'standard_user',
+    password : 'secret_sauce',
+    firstName : 'John',
+    lastName : 'Johnson',
+    zipCode : '112232',
+    desiredItemName : 'sauce-labs-backpack'
+}
+
 export class StandardUser {
   username: string;
   password: string;

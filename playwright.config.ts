@@ -40,7 +40,7 @@ if (process.env.ENV === 'local') {
 
 
 export default defineConfig({
-  //globalSetup: './src/infra/configs/global-setup.ts',
+  globalSetup: './src/infra/configs/global-setup.ts',
   testDir: './src/tests/',
   /* Run tests in files in parallel */
   fullyParallel: false,

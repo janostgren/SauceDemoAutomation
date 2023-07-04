@@ -2,9 +2,8 @@ import { test, expect } from '../../infra/fixtures/fixtures';
 
 
 
-
-
 test.describe.parallel('login tests', () => {
+
 
   test.beforeEach(async ({ loginPage }) => {
     // Go to the starting url before each test.
@@ -12,15 +11,16 @@ test.describe.parallel('login tests', () => {
     await loginPage.verifyPageLoaded();
   });
   
-  
-  test('Login with valid account credentials', async ({ loginPage, inventoryPage, standardUser }) => {
+  test('Login with valid account credentials', async ({ loginPage, inventoryPage, testData }) => {
+    
+    
     await test.step('Fill in user name', async () => {
-      await loginPage.fillUsername(standardUser.username!);
+      await loginPage.fillUsername(testData.username!);
   
     });
   
     await test.step('Fill in user password', async () => {
-      await loginPage.fillPassword(standardUser.password!);
+      await loginPage.fillPassword(testData.password!);
     });
   
     await test.step('Perform login', async () => {
@@ -34,13 +34,13 @@ test.describe.parallel('login tests', () => {
   
   
   
-  test('Login with invalid account credentials', async ({ page, loginPage, standardUser }) => {
+  test('Login with invalid account credentials', async ({ page, loginPage, testData }) => {
     await test.step('Fill in invalid user name', async () => {
-      await loginPage.fillUsername(`${standardUser.username}+ 11`);   
+      await loginPage.fillUsername(`${testData.username}+ 11`);   
     });
 
     await test.step('Fill in invalid user password', async() => {
-      await loginPage.fillPassword(`${standardUser.password} + 11`)
+      await loginPage.fillPassword(`${testData.password} + 11`)
     });
 
     await test.step('Attempt login', async() => {
@@ -56,9 +56,9 @@ test.describe.parallel('login tests', () => {
   });
 
 
-  test('Logout from an account', async ({ loginPage, inventoryPage,menuSection, header, standardUser }) => {
+  test('Logout from an account', async ({ loginPage, inventoryPage,menuSection, header, testData }) => {
     await test.step('Perform Login with to a valid account', async()=> {
-      await loginPage.login(standardUser.username!, standardUser.password!);
+      await loginPage.login(testData.username!, testData.password!);
     });
   
     await test.step('Verify user is logged in', async () => {
@@ -79,6 +79,3 @@ test.describe.parallel('login tests', () => {
   });
   
 });
-
-
-

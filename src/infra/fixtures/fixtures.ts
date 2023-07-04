@@ -2,17 +2,24 @@ import { test as base } from '@playwright/test';
 import { LoginPage } from '../page-objects/login-page';
 import { InventoryPage } from '../page-objects/inventory-page';
 import { MenuSection } from '../page-objects/menu-section';
-import { LockedOutUser, ProblemUser, StandardUser } from '../../tests/test-data/user-data';
+import { LockedOutUser, ProblemUser, StandardUser, testUser } from '../../tests/test-data/user-data';
 import { Header } from '../page-objects/header';
 import { CartPage } from '../page-objects/cart-page';
 import { CheckoutStepOne } from '../page-objects/checkout-step-one-page';
 import { CheckoutStepTwo } from '../page-objects/checkout-step-two-page';
 import { CheckoutComplete } from '../page-objects/checkout-complete-page';
+import * as path from 'path'; 
+import * as fs from 'fs';
+
+
 
 
 
 // Declare the types of your fixtures.
 type MyFixtures = {
+
+  // Test-data fixture
+  testData: any;
 
   //Pages fixtures  
   header: Header;
@@ -25,6 +32,7 @@ type MyFixtures = {
   checkoutComplete: CheckoutComplete;
 
   //Users fixtures
+  testUser: any
   standardUser: StandardUser;
   lockedOutUser: LockedOutUser;
   problemUser: ProblemUser;
@@ -33,6 +41,26 @@ type MyFixtures = {
 // Extend base test by providing "todoPage" and "settingsPage".
 // This new "test" can be used in multiple test files, and each of them will get the fixtures.
 export const test = base.extend<MyFixtures>({
+
+  
+  testData: async ({}, use) => {
+    // Set up the fixture.
+    const testDataPath = process.env.TEST_DATA_PATH;
+    let testData = {};
+    
+    if (testDataPath) {
+      console.log('Test data file detected');
+      const dataPath = path.resolve(testDataPath);
+      testData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+      console.log(testData);
+    }
+
+    // Use the fixture value in the test.
+    await use(testData);
+
+    // Clean up the fixture.
+    //await todoPage.removeAll();
+  }, 
 
     // Pages fixtures
 
@@ -89,6 +117,12 @@ export const test = base.extend<MyFixtures>({
  
 
     //Users fixtures
+
+    testUser: async ({ page }, use) => {
+    
+      const standardUser = testUser;
+      await use(standardUser);
+    },
 
     standardUser: async ({ page }, use) => {
     
