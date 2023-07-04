@@ -16,6 +16,12 @@ Config: Supports multiple environments: local, adhoc $ staging.
 
 Global Parameterization : The home/main page is defined as Global Parameter and can be accessed from any file in the project. Currently, is being accessed only by page objects. 
 
+Test Data:
+Test Data is stored in dedicated json files here: src/tests/test-data/
+We can choose which test data file to use in our executions by using the following command:
+" export TEST_DATA_PATH=src/tests/test-data/[file-name] "
+For example : export TEST_DATA_PATH=src/tests/test-data/standard-user-data.json
+
 How to execute test suites?
 npm run "Sanity Tests"
 npm run "E2E Tests"
