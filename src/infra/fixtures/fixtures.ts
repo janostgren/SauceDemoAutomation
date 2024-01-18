@@ -10,6 +10,7 @@ import { CheckoutStepTwo } from '../page-objects/checkout-step-two-page';
 import { CheckoutComplete } from '../page-objects/checkout-complete-page';
 import * as path from 'path'; 
 import * as fs from 'fs';
+import { AnyCnameRecord } from 'dns';
 
 
 
@@ -43,9 +44,9 @@ type MyFixtures = {
 export const test = base.extend<MyFixtures>({
 
   
-  testData: async ({}, use) => {
+  testData: async ({}, use:any) => {
     // Set up the fixture.
-    const testDataPath = process.env.TEST_DATA_PATH;
+    const testDataPath = process.env.TEST_DATA_PATH || 'src/tests/test-data/standard-user-data.json';
     let testData = {};
     
     if (testDataPath) {
